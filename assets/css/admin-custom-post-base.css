@@ -1,0 +1,51 @@
+/**
+ * Common admin stylesheet for custom posts of Menu Card plugin.
+ *
+ * @package Menu_Card
+ * @author  Furqan Khanzada <furqan.khanzada@gmail.com>
+ * @license   GPL-2.0+
+ * @link      https://wordpress.org/plugins/menu-card/
+ */
+
+/* class gets applied to every metabox that the plugin creates */
+.menu-card-metabox {
+
+}
+
+.menu-card-row {
+    padding: 6px 0; /*.inside class has margin-top:6px*/
+}
+
+.menu-card-row:not(:last-of-type) {
+    border-bottom: 1px solid #ECECEC;
+}
+
+.menu-card-row:first-of-type {
+    padding-top: 0;
+}
+
+.menu-card-row:last-of-type {
+    padding-bottom: 0;
+}
+
+
+.menu-card-row > .menu-card-left-panel,
+.menu-card-row > .menu-card-right-panel {
+  position:relative;
+  display: inline-block;
+  -o-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-left:1%;
+}
+
+
+.menu-card-row > .menu-card-left-panel {
+  width:24%;
+  vertical-align: top;
+}
+
+.menu-card-row > .menu-card-right-panel {
+  width:73%;
+}

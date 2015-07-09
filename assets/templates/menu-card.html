@@ -1,0 +1,113 @@
+<% var countColumn; %>
+<div id="column_wrapper">
+    <div id="column_box">
+    <% _.each(columns, function(data, pageIndex){ %>
+        <!-- get Menu's Data collection start from here -->
+        <% if( pageIndex != countPageIndex ) { %>
+            <div class="menu_card_page page_number_<%= pageIndex %>">
+                <!-- make page number of menu column start from here -->
+                <% _.each(data, function(section){ %>
+                <!-- get Menu's categories start from here -->
+                    <ul class="<%= (data.length == 2) ? 'card_menu_list two_column' : 'card_menu_list single_column' %>"> <!-- Making Menus order listing start from here -->
+                        <!-- get Menus start from here -->
+                        <% _.each(section.posts, function(menu){ %>
+                        <!-- get Menu's single item start from here -->
+                        <li>
+                            <!-- making menu's item list start from here -->
+                            <div class="menu_category <%= section.description && 'has_description' %>">
+                                <!-- Menu card name start from here -->
+                                <h1>
+                                    <%= section.name %>
+                                </h1>
+                                <% if(section.description) { %>
+                                <div class="menu_category_description">
+                                     <%= section.description %>
+                                </div>
+                                <% } %>
+                            </div>
+                            <!-- Menu card name finish here -->
+                            <div class="menu_card_content_wrapper">
+                                <!-- menu content wrapper start from here (class changeable) -->
+                                <% if(menu.post_image.length) { %>
+                                <!-- Image Condition start from here -->
+                                <div class="menu_card_thumbnail">
+                                    <% if(menu.link) { %>
+                                    <a href="<%= menu.link %>">
+                                        <img src="<%= menu.post_image[0] %>" />
+                                    </a>
+                                    <% } else {%>
+                                    <img src="<%= menu.post_image[0] %>" />
+                                    <% } %>
+                                </div>
+                                <% } %>
+                                <!-- Image Condition finish here -->
+                                <div class="<%= (menu.post_image.length) ? 'menu_card_content' : 'menu_card_content_full-width' %>"> <!-- menu item text class with full with or quarter width condition start from here -->
+                                    <% if(menu.post_title || menu.post_meta.price) { %>
+                                    <div class="title_price_box">
+                                        <div class="menu_card_title">
+                                            <% if(menu.link) { %>
+                                            <a href="<%= menu.link %>">
+                                                <h2>
+                                                    <%= menu.post_title %>
+                                                </h2>
+                                            </a>
+                                            <% } else {%>
+                                            <h2>
+                                                <%= menu.post_title %>
+                                            </h2>
+                                            <% } %>
+                                        </div>
+                                        <!-- menu card title -->
+                                        <% if(menu.post_meta.price.length) { %>
+                                        <!-- get price condition if price is present start from here -->
+                                        <span class="menu_card_price">
+                                            <%= menu.post_meta.price %>
+                                        </span>
+                                        <% } %>
+                                    </div>
+                                    <% } %>
+                                    <!-- title and price box start from here -->
+                                    <% if(menu.post_content.length) { %>
+                                    <!-- get description condition if price is present start from here -->
+                                    <p class="menu_card_description">
+                                        <!-- menu card description (changeable class) -->
+                                        <!--<%= menu.post_content.substring(0, 50) + "..." %>-->
+                                        <%= menu.post_excerpt %>
+                                    </p>
+                                    <!-- menu card description -->
+                                    <% } %>
+                                    <!-- get description condition if price is present finish here -->
+                                </div>
+                                <!-- menu item text class with full with or quarter width condition finish here -->
+                            </div>
+                            <!-- menu content wrapper finish here (class changeable) -->
+                        </li>
+                        <!-- making menu's item list finish here -->
+                        <% }) %>
+                        <!-- get Menus start finish here -->
+                </ul>
+                <!-- making Menus order listing finish here -->
+                <% }) %>
+                <!-- get Menu's categories finish here -->
+            </div>
+        <!-- make page number of menu column finish here -->
+        <% } %>
+    <% var countPageIndex = pageIndex %>
+    <% countColumn++ ; %>
+    <% }) %>
+        <!-- get Menu's Data collection finish here -->
+    </div>
+</div>
+
+<div class="navigation_arrow_wrapper">
+    <div class="nav_previous">
+        <span>
+            <
+        </span>
+    </div>
+    <div class="nav_next">
+        <span>
+            >
+        </span>
+    </div>
+</div>
