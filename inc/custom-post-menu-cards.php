@@ -23,7 +23,7 @@ class Menu_Card_MenuCards_Custom_Post
     public function Menu_Card_MenuCards_Custom_Post() {
         parent::__construct();
         $this->post_type = 'menu-cards';
-        $this->texonomy = 'Menu Card Category';
+        $this->texonomy = 'menu-card-category';
         $this->prefix = Menu_Card_Info::slug . "-" . $this->post_type;
 
         // constructor must be called from init
@@ -324,7 +324,6 @@ class Menu_Card_MenuCards_Custom_Post
             foreach ( $tax_terms_posts as $post ) {
                 $post->post_meta = get_post_meta($post->ID, $this->prefix)[0];
                 $post->post_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
-                //$grouped_posts[$term->name][] = $post;
             }
 
             $grouped_posts[] = array(

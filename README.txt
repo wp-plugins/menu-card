@@ -1,5 +1,5 @@
 === Menu Card ===
-Contributors: furqan Khanzada
+Contributors: furqan Khanzada, haiderali3010
 Tags: menu, card, menu card, restaurants menu card
 Requires at least: 3.0
 Tested up to: 3.6
@@ -31,7 +31,15 @@ You can set the following values in options page or use the attribute to overrid
 1. Activate the plugin through the 'Plugins' menu in WordPress
 
 
+== Screenshots ==
+
+1. screenshot-1.png
+
+
 == Changelog ==
+
+= 0.7.0 =
+Fixed edit menu category issue. This is major change you will lost all previous categories.
 
 = 0.6.0 =
 Initial version.
