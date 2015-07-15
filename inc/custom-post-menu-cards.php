@@ -322,7 +322,8 @@ class Menu_Card_MenuCards_Custom_Post
             );
             $tax_terms_posts = get_posts( $args );
             foreach ( $tax_terms_posts as $post ) {
-                $post->post_meta = get_post_meta($post->ID, $this->prefix)[0];
+                $post_meta = get_post_meta($post->ID, $this->prefix);
+                $post->post_meta = $post_meta[0];
                 $post->post_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
             }
 
